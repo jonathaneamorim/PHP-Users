@@ -1,0 +1,23 @@
+body {
+    background-color: #f5e1ea;
+    height: 100vh;
+    margin: 0;
+}
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.link-center {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #ff0075;          
+}
+
+a:hover {
+    color: #a3004b; 
+    text-decoration: none; 
+}
