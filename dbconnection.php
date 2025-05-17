@@ -12,7 +12,6 @@ function conectarBanco() {
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    echo "<script>console.log('Connected successfully')</script>";
     return $conn;
 }
 
@@ -26,8 +25,6 @@ function generateDatabase() {
         if ($conn->query($createScript) === TRUE) {
             echo "<script>console.log('Database created successfully')</script>";
         }
-    } else {
-        echo "<script>console.log('Database exists')</script>";
     }
     $conn->close();
 }
@@ -47,9 +44,8 @@ function generateTables() {
         if ($conn->query($createTable) === TRUE) {
             echo "<script>console.log('Table created successfully')</script>";
         }
-    } else {
-        echo "<script>console.log('Table exists')</script>";
-    }
+    } 
+    
     $conn->close();
 }
 
@@ -67,18 +63,14 @@ function usuarioExiste($email) {
 }
 
 function cadastrarUsuario($nome, $email, $senha) {
-    if (!usuarioExiste($email)) {
-        $conn = conectarBanco();
-        $hash = password_hash($senha, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("INSERT INTO `" . USER_TABLE_NAME . "` (nome, email, senha) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $nome, $email, $hash);
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
-        header('Location: login.php');
-        exit();
-    }
-    header('Location: cadastro.php');
+    $conn = conectarBanco();
+    $hash = password_hash($senha, PASSWORD_DEFAULT);
+    $stmt = $conn->prepare("INSERT INTO `" . USER_TABLE_NAME . "` (nome, email, senha) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $nome, $email, $hash);
+    $stmt->execute();
+    $stmt->close();
+    $conn->close();
+    header('Location: login.php');
     exit();
 }
 
