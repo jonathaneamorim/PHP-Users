@@ -18,7 +18,7 @@
 <body>
     <div class="container main-container">
         <div class="row justify-content-center w-100">
-            <div class="col-md-6 rounded-4 shadow p-3 mb-5" style="background-color: pink">
+            <div class="col-md-6 rounded-4 shadow p-3 mb-5" style="background-color: #f8d7da">
                 <h1 class="text-center">Login</h1>
                 <form class="mt-3 mb-3" id="formTeste" action="realizaLogin.php" onsubmit="return ValidarFormulario(event)" method="POST">                                 
                     <div class="form-floating">
