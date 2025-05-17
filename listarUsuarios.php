@@ -38,7 +38,6 @@
                     </tbody>
                 </table>
                     <a href="logout.php" class="btn btn-light w-100 mt-2">Logout</a>
-
             </div>
         </div>
     </div>
