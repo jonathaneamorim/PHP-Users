@@ -49,7 +49,6 @@
                 .then(dados => {
                     const tabela = document.getElementById('tabelaUsuarios');
                     tabela.innerHTML = ''; 
-                    tabela.innerHTML = '<tr><td colspan="2">Carregando...</td></tr>';
 
                     dados.forEach(usuario => {
                         const linha = document.createElement('tr');
